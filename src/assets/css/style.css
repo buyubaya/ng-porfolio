@@ -1715,6 +1715,8 @@ ul {
 }
 .table {
   display: table;
+}
+.table.cartRow {
   min-width: 500px;
 }
 .col-50 {
@@ -1736,7 +1738,7 @@ ul {
   border: 1px solid #ccc;
   border-top: none;
 }
-.cartArea > .cartRow:first-child {
+.cartArea > .cartRow:nth-of-type(1) {
   border-top: 1px solid #ccc;
 }
 .removeFromCart {
@@ -2258,6 +2260,21 @@ body.is-active {
   content: "\f178";
   display: table-cell;
   padding-right: 1em;
+}
+
+@media (max-width: 767px) {
+  .wrapInfo .boxInfo {
+    display: block;
+    width: 100%;
+    padding: 0 !important;
+  }
+  .boxExp .time, .boxExp .contentInfo {
+    display: block;
+    min-width: none;
+  }
+  .boxExp .time {
+    margin-bottom: 10px;
+  }
 }
     
   
