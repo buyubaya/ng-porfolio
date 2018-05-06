@@ -1,0 +1,9 @@
+<select #boxSort class="boxSort" (change)="sort($event)" value="{{ !isFiltered?'':boxSort.value }}">
+  <option value="">Sort</option>
+  <option value="a-z">A - Z</option>
+  <option value="z-a">Z - A</option>
+  <option value="price-asc">Price-Ascending</option>
+  <option value="price-des">Price-Descending</option>
+  <option value="latest">Latest</option>
+  <option value="oldest">Oldest</option>
+</select>

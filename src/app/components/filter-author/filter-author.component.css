@@ -1,0 +1,6 @@
+:host {
+    width: 33.33%;
+}
+:host>.boxSFilter {
+    width: 100%;
+}

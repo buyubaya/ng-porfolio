@@ -1,0 +1,24 @@
+<div class="mb50 ovf-x">
+    <h1 *ngIf="!(list.length>0)" class="text-center mt20 mb20">No Item in your cart</h1>
+  <div class="cartArea" *ngIf="list.length>0">
+    <h1 class="text-center mt20 mb20">Cart List</h1>
+    <div class="cartRow table">
+      <div class="cell align-middle p10 text-center col-50">NO.</div>
+      <div class="cell align-middle p10 text-center col-100">IMAGE</div>
+      <div class="cell align-middle p10 w100p">NAME</div>
+      <div class="cell align-middle p10 text-center col-100">PRICE</div>
+      <div class="cell align-middle p10 text-center col-100">QUANTITY</div>
+      <div class="cell align-middle p10 text-center col-100">TOTAL</div>
+      <div class="cell align-middle p10 text-center col-100">REMOVE</div>
+    </div>
+    <div *ngFor="let x of list; let index = index" class="cartRow table">
+      <div class="cell align-middle p10 text-center col-50">{{index+1}}</div>
+      <div class="cell align-middle p10 text-center col-100"><a href="javascript:;"><img [src]="'http://hieu1801.000webhostapp.com/public/images/'+x.img" alt="" class="maxw100p" /></a></div>
+      <div class="cell align-middle p10 w100p">{{x.name}}</div>
+      <div class="cell align-middle p10 text-center col-100">{{x.price}}</div>
+      <div class="cell align-middle p10 text-center col-100"><input type="number" class="maxw100p text-center" value="{{x.qty}}" (change)="updateQty(x.id,$event)" /></div>
+      <div class="cell align-middle p10 text-center col-100">{{x.qty*x.price}}</div>
+      <div class="cell align-middle p10 text-center col-100"><a href="javascript:;" (click)="removeFromCart(x.id)"><i class="fa fa-close"></i></a></div>
+    </div>
+  </div>
+</div>

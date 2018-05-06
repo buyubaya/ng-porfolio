@@ -1,0 +1,4 @@
+<select #boxFilterBrand class="boxFilter" (change)="filter($event)" value="{{ !isFiltered?'':boxFilterBrand.value }}">
+  <option value="">Brand</option>
+  <option *ngFor="let x of list" [value]="x.id">{{x.name}}</option>
+</select>

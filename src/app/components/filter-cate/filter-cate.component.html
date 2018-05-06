@@ -1,0 +1,4 @@
+<select #boxFilterCate class="boxFilter" (change)="filter($event)" value="{{ !isFiltered?'':boxFilterCate.value }}">
+  <option value="">Category</option>
+  <option *ngFor="let x of list" [value]="x.id">{{x.name}}</option>
+</select>

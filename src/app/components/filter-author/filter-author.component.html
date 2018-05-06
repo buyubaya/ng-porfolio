@@ -1,0 +1,4 @@
+<select #boxFilterAuthor class="boxFilter" (change)="filter($event)" value="{{ !isFiltered?'':boxFilterAuthor.value }}">
+  <option value="">Author</option>
+  <option *ngFor="let x of list" [value]="x.id">{{x.name}}</option>
+</select>

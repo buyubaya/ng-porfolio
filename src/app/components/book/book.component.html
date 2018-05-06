@@ -1,0 +1,48 @@
+<div class="contentArea row">
+	<div class="sideArea">
+		<div class="row filterRow01">
+			<SearchComponent></SearchComponent>
+			<SortComponent></SortComponent>
+		</div>
+		<div class="row filterRow02">
+			<FilterCateComponent></FilterCateComponent>	
+			<FilterBrandComponent></FilterBrandComponent>	
+			<FilterAuthorComponent></FilterAuthorComponent>	
+		</div>
+		<div class="priceFilterWrap">
+			<FilterPriceComponent></FilterPriceComponent>
+		</div>
+		<h1 *ngIf="isFiltered" class="btnClearFilter text-center mb20"><span class="block-inline bg-000 p20 text-fff" (click)="clearFilter()"><i class="fa fa-close"></i> CLEAR FILTER</span></h1>
+	</div>
+	<div class="mainArea">
+		<h1 class="text-center mb50" *ngIf="isLoading"><div class="text-center p20"><span class="loading02"></span></div></h1>
+		<h1 class="text-center mb50" *ngIf="!isLoading && count">{{count}} ITEMS FOUND</h1>
+		<div class="productListWrap ovf-h">
+			<ul class="productList list-inline list-2-xs list-3-sm list-4-md ovf-h">
+				<li *ngFor="let x of list" class="column ovf-h" data-fly-start>
+					<div class="card ovf-h pos-rel v2">
+						<p class="cardImg ovf-h shadow"><a routerLink="/product/{{x.id}}"><img data-fly-img [src]="'http://hieu1801.000webhostapp.com/public/images/'+x.img" class="w100p"></a></p>
+						<div class="cardContent">
+							<p><a href="" class="cardTitle text-bold">{{x.name}}</a></p>
+							<p class="cardInfo1 bg-000 text-fff text-bold">{{x.price}}</p>	
+						</div>	
+						<ul class="cardBtnList text-center list-inline">
+							<li><a href="javascript:;" class="addToCart bg-fff" (click)="addToCart(x.id,$event)"><i class="fa fa-shopping-bag"></i></a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<ul *ngIf="totalPage>1" class="pagination text-center mt50 mb20">
+			<ng-container *ngIf="pageStart>1">
+				<li><a href="" (click)="toPage($event,1)">&lt;</a></li>
+				<li><a href="" (click)="toPage($event,currentPage-maxPage)">...</a></li>
+			</ng-container>
+			<li *ngFor="let x of pageArr" [ngClass]="{'is-active': x===currentPage}"><a href="" (click)="toPage($event,x)">{{x}}</a></li>
+			<ng-container *ngIf="pageEnd<totalPage">
+				<li><a href="" (click)="toPage($event,currentPage+maxPage)">...</a></li>
+				<li><a href="" (click)="toPage($event,totalPage)">&gt;</a></li>
+			</ng-container>
+		</ul>
+	</div>
+</div>

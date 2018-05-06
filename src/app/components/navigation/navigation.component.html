@@ -1,0 +1,26 @@
+<div class="navbar">
+  <div class="mobileMenu">
+    <p class="sitename text-fff">MY BOOK</p>
+    <div class="menuIcon"></div>
+  </div>
+  <ul class="mainMenu">
+    <li routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/">Home</a>
+    </li>
+    <li routerLinkActive="is-active">
+        <a routerLink="/about">About Me</a>
+      </li>
+    <li routerLinkActive="is-active">
+      <a routerLink="/cart" data-fly-end="true">Cart</a>
+    </li>
+    <li routerLinkActive="is-active">
+      <a routerLink="/contact">Contact</a>
+    </li>
+    <li routerLinkActive="is-active">
+      <a routerLink="/register">Register</a>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle data-target=".modalLogin,is-active">Log in</a>
+    </li>
+  </ul>
+</div>

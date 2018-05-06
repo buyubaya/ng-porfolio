@@ -1,0 +1,33 @@
+<ul class="breadcrumb">
+  <li *ngFor="let x of breadcrumb"><a routerLink="/" (click)="goToBC(x.id)">{{x.name}}</a></li>
+  <li *ngIf="item !== null">{{item.name}}</li>
+</ul>
+
+<div *ngIf="item !== null" class="cardDetail p20 row">
+  <div class="cardImg column column-4-md text-center">
+    <img [src]="(item.img != undefined)?'http://hieu1801.000webhostapp.com/public/images/'+item.img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='" alt="" class="maxw100p" />
+  </div>
+  <div class="cardContent column column-8-md pl20">
+    <h4 class="cardName text-bold fs20">{{item.name}}</h4>
+    <p class="cardPrice text-bold fs35 mt20">{{item.price}}</p>
+    <p class="cardDescription mt20" [innerHTML]="item.description"></p>
+  </div>
+</div>
+
+<div *ngIf="relatedList.length>0" class="mt50">
+  <h2 class="text-bold mb20">RELATED PRODUCT</h2>
+  <ul class="slickSlider productList list-inline list-4-lg list-3-md list-2-sm list-1-xs">
+      <li *ngFor="let x of relatedList" class="column ovf-h" data-fly-start>
+        <div class="card ovf-h pos-rel v2">
+          <p class="cardImg ovf-h shadow"><a routerLink="/product/{{x.id}}"><img data-fly-img [src]="'http://hieu1801.000webhostapp.com/public/images/'+x.img" class="w100p"></a></p>
+          <div class="cardContent">
+            <p><a href="" class="cardTitle text-bold">{{x.name}}</a></p>
+            <p class="cardInfo1 bg-000 text-fff text-bold">{{x.price}}</p>	
+          </div>	
+          <ul class="cardBtnList text-center list-inline">
+            <li><a href="javascript:;" class="addToCart bg-fff" (click)="addToCart(x.id,$event)"><i class="fa fa-shopping-bag"></i></a></li>
+          </ul>
+        </div>
+      </li>
+  </ul>
+</div>

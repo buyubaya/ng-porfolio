@@ -1,0 +1,6 @@
+:host {
+    width: 66.67%;
+}
+:host>.boxSearch {
+    width: 100% !important;
+}

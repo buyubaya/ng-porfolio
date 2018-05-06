@@ -1,0 +1,6 @@
+:host {
+    width: 33.33%;
+}
+:host>.boxSort {
+    width: 100% !important;
+}
