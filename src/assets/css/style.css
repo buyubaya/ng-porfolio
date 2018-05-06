@@ -2395,3 +2395,13 @@ body.is-active {
     margin-top: 10px;
   }
 }
+
+@media (min-width: 768px) {
+  .filterRow01 {
+    display: block;
+  }
+  .boxSearch, .boxSort, .boxFilter {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
