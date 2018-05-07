@@ -1,18 +1,20 @@
 <div class="row">
 	<div class="column column-6-lg">
-		<form action="" class="formArea">
+		<form action="" class="formArea" [formGroup]="form">
 			<div class="formBody">
 				<div class="formGroup">
 					<div class="formLabel">Email</div>
-					<input type="text" name="email" class="formInput" placeholder="Email">
+					<input type="text" name="email" class="formInput" placeholder="Email"
+					formControlName = "email">
 				</div>
 				<div class="formGroup">
 					<div class="formLabel">Phone</div>
-					<input type="text" name="phone" class="formInput" placeholder="Phone">
+					<input type="text" name="phone" data-type="number" class="formInput" placeholder="Phone"
+					formControlName = "phone">
 				</div>
 				<div class="formGroup">
 					<div class="formLabel">Message</div>
-					<textarea class="formInput w100p" name="message" rows="10"></textarea>
+					<textarea class="formInput w100p" name="message" rows="10" formControlName = "message"></textarea>
 				</div>
 			</div>
 			<div class="formFooter">

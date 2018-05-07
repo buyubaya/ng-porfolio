@@ -1,14 +1,19 @@
 <div class="modalScreen modalLogin">
     <div class="modalBox" data-prevent>
-        <form action="" class="formArea">
+        <form action="" class="formArea" [formGroup]="form">
             <div class="formBody">
               <div class="formGroup">
                 <div class="formLabel">Username</div>
-                <input type="text" name="name" class="formInput" placeholder="Username">
+                <input type="text" name="name" class="formInput" placeholder="Username"
+                formControlName="name">
               </div>
               <div class="formGroup">
                 <div class="formLabel">Password</div>
-                <input type="password" name="password" class="formInput" placeholder="Password">
+                <input type="password" name="password" class="formInput" placeholder="Password"
+                formControlName="password">
+              </div>
+              <div class="formGroup">
+                <div id="btnLoginGoogle" class="btnLoginGoogle">Sign in Google</div>
               </div>
             </div>
             <div class="formFooter">

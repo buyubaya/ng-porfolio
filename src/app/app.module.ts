@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NouisliderModule } from 'ng2-nouislider';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,6 +22,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { BookService } from './services/book.service';
 import { StateService } from './services/state.service';
 import { CartService } from './services/cart.service';
+import { UserService } from './services/user.service';
 import { CartComponent } from './components/cart/cart.component';
 import { PageContactComponent } from './components/page-contact/page-contact.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -29,7 +31,7 @@ import { AboutComponent } from './components/about/about.component';
 
 // ROUTER
 const appRoutes: Routes = [
-  { path: '', component: BookComponent },
+  { path: '', component: BookComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'product/:id', component: BookDetailComponent },
   { path: 'cart', component: CartComponent },
@@ -56,9 +58,9 @@ const appRoutes: Routes = [
     AboutComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, NouisliderModule, RouterModule.forRoot(appRoutes)
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, NouisliderModule, RouterModule.forRoot(appRoutes)
   ],
-  providers: [BookService,StateService,CartService],
+  providers: [BookService, StateService, CartService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
